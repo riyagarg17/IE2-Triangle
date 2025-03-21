@@ -27,7 +27,10 @@ def test_extra_cases_for_full_coverage():
     assert Triangle.classify(10, 10, 20) == Triangle.Type.INVALID  # Another edge case of invalid isosceles
     assert Triangle.classify(3, 3, 3.0001) == Triangle.Type.ISOSCELES  # Floating point close to Equilateral
     assert Triangle.classify(5, 5, 6) == Triangle.Type.ISOSCELES  # Standard Isosceles
-    
+
+def test_missing_statement_coverage():
+    """Covers elif trian == 2 and a + c > b: return Triangle.Type.ISOSCELES"""
+    assert Triangle.classify(5, 7, 5) == Triangle.Type.ISOSCELES  # a == c, a + c > b   
 
 if __name__ == "__main__":
     pytest.main()
